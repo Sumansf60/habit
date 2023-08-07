@@ -1,0 +1,256 @@
+body {
+    background-color: rgb(50, 50, 50);
+}
+
+#main-box {
+    background-color: white;
+    box-shadow: #7366ff1c 0px 4px 12px;
+    /* align-items: center; */
+    height: 27m;
+    width: 28em;
+    margin: auto;
+    display: flex;
+    margin-top: 10em;
+    border-radius: 10px;
+    flex-direction: column;
+    font-family: Rubik,sans-serif;
+}
+
+/* INTRO BOX */
+
+#intro-box {
+    align-self: flex-start;
+    padding: 40px;
+    padding-top: 10px;
+}
+
+#intro-box h2 {
+    font-size: 1.5em;
+}
+
+#intro-box  p {
+    letter-spacing: 0.7px;
+    font-size: 0.90em;
+    word-spacing: 2px;
+    color: grey;
+    margin-top: -10px;
+}
+
+/* FORM */
+
+form {
+    word-spacing: 2px;
+    padding: 40px;
+    padding-top: 0;
+    margin-top: -20px;
+    font-size: 0.9em;
+}
+
+/* Email and Passowrd */
+label {
+    letter-spacing: 0.7px;
+    font-size: 0.96em;
+}
+
+form label input {
+    margin-top: 5px;
+    display: block;
+}
+
+input {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    border: 1px solid rgba(128, 128, 128, 0.174);
+    width: 95%;
+    padding: 14px;
+    border-radius: 5px;
+}
+
+input[type="email"], input[type="password"] {
+
+    background-color : #7366ff13; 
+  
+}
+
+input:first-child {
+    margin-bottom: 20px;
+}
+
+#show-password {
+    position: relative;
+    display: inline;
+    top: -50px;
+    left: 26em;
+    cursor: pointer;
+    color: #7366ff;
+    font-size: 0.9em;
+}
+
+/* Remember me and Forgot Password */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    display: inline;
+    cursor: pointer;
+}
+
+#rem-pass label {
+    display: flex;
+}
+
+#rem-pass {
+    margin-top: -10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#rem-pass div {
+    font-size: 0.95em;
+    margin-top: 7.5px;
+    margin-left: 5px;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+}
+
+#forgot-pass {
+    color: #7366ff;
+}
+
+/* SIGN IN BTN */
+#sign-in-btn button {
+    transition: background-color 0.3s ease-in-out;
+    background-color: #7366ff;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 6px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+
+/* Sign up Section */
+#sing-up-section1 div {
+    align-items: center;
+    margin-top: -20px;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+h3 {
+    color: rgb(88, 88, 88);
+}
+
+hr {
+    margin-left: 10px;
+    border-width:0;
+    color:gray;
+    height:2px;
+    width: 57%;
+    border-radius: 1px;
+    background-color:rgba(128, 128, 128, 0.326)
+}
+
+/* Social BTNS */
+#socials-btn {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#socials-btn button {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 5px;
+    margin: 0 5px;
+    border: none;
+    padding: 12px 30px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.fa-brands {
+    margin-right: 5px;
+    display: inline;
+}
+
+/* Create acc */
+#create-acc {
+    letter-spacing: 0.7px;
+    flex-direction: row;
+    font-size: 0.98em;
+    margin-top: 22px;
+    color: grey;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#create-acc div:first-child {
+    margin-right: 8px;
+}
+
+#create-acc div:last-child {
+    color: #7366ff;
+}
+
+#socials-btn button, #create-acc div:last-child, #sign-in-btn button  {
+    cursor: pointer;
+}
+
+/* Animations and effects */
+#socials-btn button:hover {
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+#sign-in-btn button:hover {
+    transition: background-color 0.3s ease-in-out;
+    background-color: #f73164;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 480px) {
+    #main-box {
+        margin: auto;
+        margin-top: 0em;
+        height: 27m;
+        width: 23em;
+        border-radius: 0;
+    }
+
+    #create-acc, #socials-btn {
+        flex-direction: column;
+    }
+
+    #socials-btn button {
+        width: 100%;
+    }
+
+    #socials-btn button:nth-child(2) {
+        margin: 10px;
+    }
+
+    #sing-up-section1 div {
+        margin: 15px 0;
+        flex-direction: column;
+    }
+
+    #sing-up-section1 hr {
+        width: 100%;
+    }
+
+    #show-password {
+        left: 20em;
+    }
+
+    #rem-pass {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+  }

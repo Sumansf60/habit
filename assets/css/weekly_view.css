@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+  }
+  h1 {
+    margin: 50px;
+    color: #0A5BA0;
+  }
+  #cards {
+    color: #0A5BA0;
+  }
+  .card{
+    text-align: left;
+    background-color: white;
+    display: inline-block;
+    border: 1px solid #44A3F3;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 15px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+  }
+  .header{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .task{
+    cursor: pointer;
+    margin: 5px 0px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;   
+  }
+  
+  .not-done{
+    color: #777;
+  }
+  .done {
+    color: #229954;
+    font-weight: bold;
+  }

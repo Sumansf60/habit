@@ -1,0 +1,47 @@
+<% for(let habit of habits) {%>   
+    <div class="flex justify-around items-center bg-white p-2">
+        <!-- habit title -->
+        <div class="text-center text-md font-bold"><%= habit.title %></div>
+
+        <!-- habit details in weekly view-->
+        <div class="grid grid-rows-1 grid-flow-col gap-6 text-center">
+            <% for(let date of weeklyDates) { %>
+                <div class="bg-white rounded shadow border p-6 w-40">
+                <!-- date -->
+                    <div class="">
+                        <p><%= date %></p>
+                    </div>
+                    <% 
+                        let found;
+                        let status;
+                        habit.dates.find((item) => {
+                            if(item.date === date)
+                            {
+                                found = true;
+                                status = item.complete;
+                            }
+                        });
+                    %>
+                <!-- complete status -->
+                    <div>
+                        <a href="/users/habit/toggle-status/?id=<%= habit._id%>&date=<%=date%>" class="">
+                            <% if(found && status=='y') { %>
+                                <i class="fas fa-check-circle" style="color: rgb(130, 189, 107)"></i>
+                            <% } else if(found && status=='n') { %>
+                                <i class="fas fa-times-circle" style="color: rgb(241, 121, 109)"></i>
+                            <% } else { %>
+                                <i class="fa-solid fa-circle"></i>
+                            <% } %>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+            <!-- option to delete -->
+        </div>
+        <div class="menu">
+            <a href="/users/habit/delete-habit/?id=<%=habit._id%>" style="text-decoration: none;">
+                <button class="rounded-lg bg-red-600 text-white px-5 py-3 font-semibold text-sm leading-tight shadow-md hover:bg-red-700"><i class="fa-regular fa-trash-can fa-lg hover:drop-shadow-lg" style="color: white;"></i></button>
+            </a>
+        </div>
+    </div>
+<% } %>

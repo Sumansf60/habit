@@ -1,0 +1,78 @@
+ <!-- <link rel="stylesheet" href="/css/home.css"> -->
+ 
+ <!-- header  -->
+ <%- include('_header'); %>
+ 
+ <div class="home-body">
+  <!----------- if user is not logged in ----------->
+  <% if(!locals.user) { %>
+      <div class="flex flex-col justify-center items-center py-20 text-indigo-100">
+        <div class="w-full mb-10 md:mb-0 ">
+                <h2 class="text-2xl md:text-4xl lg:text-6xl text-white mb-6 text-center md:text-center">Your habits will determine your future...</h2>
+        </div>
+        <form action="/users/sign-up" method="GET" class="mb-6 text-center md:text-left">
+            <button class="inline-block py-2 px-5 text-lg bg-yellow-500 text-yellow-800 rounded hover:bg-yellow-300">Get Started</button>
+        </form>
+      </div>
+  <% }
+
+  <!----------- if no habits are added ----------->
+  else if(locals.user && locals.habits.length==0) { %>
+  <%= habits %>
+  <div class="flex flex-col justify-center items-center py-20 text-indigo-100r">
+      <div id="noHabitText" class="w-full mb-10 md:mb-0">
+          <p class="text-2xl md:text-4xl lg:text-6xl text-white mb-6 text-center md:text-center">Looks like you aren't tracking any habits yet, so... <br> what do you want to start doing every day? :)</p>          
+      </div>
+      <!-- button to open add habit form  -->
+      <!-- <button id="open-btn-fixed" onclick="openForm()" > + Add Habit</button> -->
+      <div class="p-4 flex flex-row space-x-4 place-content-center" id="myForm">
+        <form action="/users/habit/create-habit" id="createHabit" method="POST" class="p-4 flex flex-row space-x-4 place-content-center">
+            <input type="text" name="title" placeholder="Enter habit title" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <input type="text" name="desc" placeholder="Description" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <div class="flex flex-row space-x-4 bg-gray-100 rounded-lg border p-2">
+                  <span class="m-auto">Actions</span>
+                  <button type="reset" id="cancel-btn" onclick="closeForm()" class="rounded-lg bg-red-600 text-white px-5 py-3 font-semibold text-sm leading-tight shadow-md hover:bg-red-700">Cancel</button>
+                  <button type="submit" id="save-btn" class="rounded-lg bg-green-600 text-white px-5 py-3 font-semibold text-sm leading-tight shadow-md hover:bg-green-700">Save</button>
+            </div>
+        </form>
+    </div>
+  </div>
+  <% }
+  
+  <!------------ show habits ------------>
+  else { %>
+      <h1 class="text-2xl md:text-4xl lg:text-6xl text-white mb-6 text-center md:text-center mt-5">Habits</h1>
+      <div class="show-habits">
+          <div>
+              
+              <!-- weekly view -->
+              <%- include('weekly_view'); %>
+              
+              <!-- daily view  -->
+              <%- include('daily_view'); %>
+
+          </div>
+
+
+          <div class="p-4 flex flex-row space-x-4 place-content-center" id="myForm">
+              <form action="/users/habit/create-habit" id="createHabit" method="POST" class="p-4 flex flex-row space-x-4 place-content-center">
+                  <input type="text" name="title" placeholder="Enter habit title" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                  <input type="text" name="desc" placeholder="Description" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <div class="flex flex-row space-x-4 bg-gray-100 rounded-lg border p-2">
+                        <span class="m-auto">Actions</span>
+                        <button type="reset" id="cancel-btn" onclick="closeForm()" class="rounded-lg bg-red-600 text-white px-5 py-3 font-semibold text-sm leading-tight shadow-md hover:bg-red-700">Cancel</button>
+                        <button type="submit" id="save-btn" class="rounded-lg bg-green-600 text-white px-5 py-3 font-semibold text-sm leading-tight shadow-md hover:bg-green-700">Save</button>
+                  </div>
+              </form>
+          </div>
+
+          <!-- button to open add habit form  -->
+          <!-- <button id="open-btn" class="button-30" onclick="openForm()" > + Add Habit</button> -->
+          <!-- button to toggle between daily/weekly view -->
+          <!-- <button id="change-view" class="button-30" onclick="changeView()"> Show Daily</button> -->
+      </div>
+  <% } %>
+</div>
+ 
+ <!-- importing this script to open/close form -->
+ <script src="../assets/js/home.js"></script>
